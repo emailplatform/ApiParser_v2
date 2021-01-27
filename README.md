@@ -23,21 +23,14 @@ $parser = new ApiParser($settings);
 3. Call method from ApiParser
 
 ```php
-$subscriberid = 68317547;
-$listid = 0;
-$emailaddress = "";
-$mobileNumenr = "";
-$mobilePrefix = "";
-$fieldid = 14;
-$fieldValue = array(
-   'Lastname' => "Tom",
-   'Firstname' => 'Jones',
-   'Date' => '31-12-2020 T00:00',
-   'Active' => 0
-);
-$path = 'Users[Lastname=SimpleChange4]';
+$listid = 24;
+$emailaddress = "contact@marketingplatform.com";
+$mobileNumber = "72444444";
+$mobilePrefix = "45";
+$confirmed = false;
+$addToAutoreposnders = false;
 
-$result = $parser->UpdateOTMDocument($subscriberid, $listid, $emailaddress, $mobileNumber, $mobilePrefix, $fieldid, $fieldValue, $path);
+$result = $parser->AddProfileToList($listid, $emailaddress, $mobileNumber, $mobilePrefix, $confirmed, $addToAutoreposnders);
 
 print_r($result);
 ```
