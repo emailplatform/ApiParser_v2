@@ -1,0 +1,28 @@
+{
+	"name": "marketingplatform/api_parser_2",
+	"type": "library",
+	"description": "PHP class for using our company's API v2 as part of the subscription",
+	"keywords": [
+		"API",
+		"library",
+		"SDK"
+	],
+	"homepage": " https://github.com/emailplatform/ApiParser_v2",
+	"license": "MIT",
+	"minimum-stability": "stable",
+	"prefer-stable": true,
+	"authors": [
+		{
+			"name": "Toni Mladenovski",
+			"email": "tonim@marketingplatform.com",
+			"homepage": "https://marketingplatform.com",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"php": ">=5.6.0"
+	},
+	"autoload": {
+        	"psr-4": {"marketingplatform\\": "src/"}
+    	}
+}
