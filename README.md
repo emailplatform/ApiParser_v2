@@ -1,16 +1,16 @@
 # ApiParser
-PHP class for using our company's API as part of the subscription.
+PHP class for using our company's API v2 as part of the subscription.
 <hr><br>
 
 ## Installation
 Run following command in terminal from the root of your project:
 ```bash
-composer require emailplatform/api_parser
+composer require marketingplatform/api_parser
 ```
 You can load dependencies by adding these lines to your code: 
 ```php
-require_once 'vendor/emailplatform/api_parser/src/settings.php';
-require_once 'vendor/emailplatform/api_parser/src/ApiParser.class.php';
+require_once 'vendor/marketingplatform/api_parser/src/settings.php';
+require_once 'vendor/marketingplatform/api_parser/src/ApiParser.class.php';
 ```
 <hr><br>
 
