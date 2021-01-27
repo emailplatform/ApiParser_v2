@@ -5,7 +5,7 @@ PHP class for using our company's API v2 as part of the subscription.
 ## Installation
 Run following command in terminal from the root of your project:
 ```bash
-composer require marketingplatform/api_parser_2
+composer require marketingplatform/api_parser_v2
 ```
 You can load dependencies by adding these lines to your code: 
 ```php
