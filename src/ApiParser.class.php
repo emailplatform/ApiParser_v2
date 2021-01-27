@@ -1,11 +1,12 @@
 <?php
 
-class ApiParser_V2
+class ApiParser
 {
 	var $settings = array ();
+	
 
 	/** Production **/
-   	var $URL = 'https://api.mailmailmail.net/v2.0/';
+	var $URL = 'https://api.mailmailmail.net/v2.0/';
 
 
 
@@ -707,41 +708,6 @@ class ApiParser_V2
 				'mobileNumber' => $mobileNumber,
 				'mobilePrefix' => $mobilePrefix,
 				'profileid' => $profileid
-		);
-		
-		return $this->MakeGetRequest($url, $params);
-	}
-	
-	/**
-        * GetProfilesByDataField
-        * Get profiles for particular data field
-        * 
-        * @param Int fieldid
-        *           Id of the field
-        * @param object fieldValue
-        *           Which value to contain data field
-        * @param Boolean activeOnly
-        *           Whether to get only active profiles or not
-        * @param Boolean countOnly
-        *           If specify true will return only number of how many records
-        *           If specify false will return array of all records
-        * @param Int limit
-        * 			Number of records you want to fetch.
-        * @param Int offset
-        * 			From where to start.        	
-        *
-        */
-	public function GetProfilesByDataField ($fieldid = false, $fieldValue = false, $activeOnly = true, $countOnly = false, $limit = 100, $offset = 0)
-	{
-		$url = $this->URL . '/Profiles/GetProfilesByDataField';
-		
-		$params = array (
-				'fieldid' => $fieldid,
-				'fieldValue' => $fieldValue,
-				'activeOnly' => $activeOnly,
-				'countOnly' => $countOnly,
-				'limit' => $limit,
-				'offset' => $offset
 		);
 		
 		return $this->MakeGetRequest($url, $params);
@@ -3179,67 +3145,18 @@ class ApiParser_V2
 		return self::REQUEST_FAILED;
 	}
 	
-	 /**
-        * ImportContacts
-        * Import contacts to particular list 
-        *
-        * @param Int listid
-        *          Id of list
-        * @param Dictionary request
-        *           Request for import
-        * @param Dictionary keys
-        *           Keys for import
-        * @param String callbackURL
-        * 			URL for notify status when import will done    
-        *
-        */
-	public function ImportContacts(int $listid = 0, array $request = array(), array $keys = array(), string $callbackURL = '')
-	{
-		$url = $this->URL . '/Profiles/ImportContacts';
-		
-		$params = array (
-			'listid' => $listid,
-			'request' => $request,
-			'keys' => $keys,
-			'callbackURL' => $callbackURL
-		);
-	
-		$params = json_encode($params);
-		return $this->MakePostRequest($url, $params);
-	}
-	
-	 /**
-           * GetImportStatus
-           * Get status for particular import
-           *
-           * @param Int importid
-           *          Id of import       
-           *
-           */
-	public function GetImportStatus(int $importid = 0)
-	{
-		$url = $this->URL . '/Profiles/GetImportStatus';
-		
-		$params = array (
-				'importid' => $importid
-		);
-		
-		$params = json_encode($params);
-		return $this->MakeGetRequest($url, $params);
-	}
-	
 	/**
           * CreateSubAccount
           * Create sub account by particular account 
           *
           * @param String accountName
-          *          Name of account
+          *          Set username for your new sub account.
           * @param String importid
-          *          Password of account
+          *          Set password for your new sub account.
           * @param String importid
-          *          Email address
+          *          Set owner email for your new sub account.
           * @param Array allowedDomains
-          *          All allowed domains
+          *          Set which domains will be able to use this sub account.
           *
           */
 	public function CreateSubAccount(string $accountName = "", string $accountPassword = "", string $ownerEmail = "", array $allowedDomains = array())
@@ -3261,9 +3178,9 @@ class ApiParser_V2
           * Inherit lists from particular account
           *
           * @param String accountName
-          *          Name of account
+          *          Set sub account name that you want to inherit lists.
           * @param Array inheritLists
-          *          All lists for inherit
+          *          Set lists which need to be inherited.
           *
           */
 	public function InheritListsToSubAccount(string $accountName = "", array $inheritLists = array())
@@ -3283,9 +3200,9 @@ class ApiParser_V2
           * Inherit segments from particular account
           *
           * @param String accountName
-          *          Name of account
+          *          Set sub account name that you want to inherit segments.
           * @param Array inheritSegments
-          *          All segments for inherit
+          *          Set segments which need to be inherited.
           *
           */
 	public function InheritSegmentsToSubAccount(string $accountName = "", array $inheritSegments = array())
@@ -3305,24 +3222,24 @@ class ApiParser_V2
          * Inherit newsletters from particular account
          *
          * @param String accountName
-         *          Name of account
+         *          Set sub account name that you want to inherit newsletter.
          * @param int newsletterid
-         *          Newsletter id for inherit
-         * @param string linkType
-         *          Type of link (segment,list)
-         * @param array linkid
-         *          Array of segments or lists according to linkType
+         *          Newsletter ID that will be inherited.
+         * @param string recipientsType
+         *          Choose recipients type. Available options "list" and "segment".
+         * @param array recipientsid
+         *          Specify list or segment ids you want to link with inherited newsletter.
          *
          */
-	public function InheritNewsletterToSubAccount(string $accountName = "", int $newsletterid = 0, string $linkType = "", array $linkid = array())
+	public function InheritNewsletterToSubAccount(string $accountName = "", int $newsletterid = 0, string $recipientsType = "", array $recipientsid = array())
 	{
 		$url = $this->URL . '/Users/InheritNewsletterToSubAccount';
 		
 		$params = array (
 				'accountName' => $accountName,
 				'newsletterid' => $newsletterid,
-				'linkType' => $linkType,
-				'linkid' => $linkid
+				'recipientsType' => $recipientsType,
+				'recipientsid' => $recipientsid
 		);
 		
 		return $this->MakePutRequest($url, $params);
