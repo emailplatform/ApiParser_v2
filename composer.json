@@ -1,5 +1,5 @@
 {
-	"name": "marketingplatform/api_parser_v2",
+	"name": "marketingplatform/apiParser_v2",
 	"type": "library",
 	"description": "PHP class for using our company's API v2 as part of the subscription",
 	"keywords": [
@@ -13,8 +13,8 @@
 	"prefer-stable": true,
 	"authors": [
 		{
-			"name": "Toni Mladenovski",
-			"email": "tonim@marketingplatform.com",
+			"name": "Filip Donevski",
+			"email": "filip@marketingplatform.com",
 			"homepage": "https://marketingplatform.com",
 			"role": "Developer"
 		}
