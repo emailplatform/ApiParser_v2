@@ -1,5 +1,5 @@
 {
-	"name": "marketingplatform/apiParser_v2",
+	"name": "marketingplatform/api_parser_v2",
 	"type": "library",
 	"description": "PHP class for using our company's API v2 as part of the subscription",
 	"keywords": [
